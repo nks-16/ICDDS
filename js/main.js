@@ -1,170 +1,220 @@
-(function ($) {
-    "use strict";
+(function () {
+  "use strict";
 
-    // Preloader
-    $(window).on('load', function () {
-        if ($('#preloader').length) {
-            $('#preloader').delay(100).fadeOut('slow', function () {
-                $(this).remove();
-            });
-        }
-    });
+  const header = document.getElementById("header");
+  let navToggle = document.getElementById("nav-toggle");
+  const navContainer = document.getElementById("nav-menu-container");
+  const backToTop = document.querySelector(".back-to-top");
+  const skipLink = document.querySelector(".skip-to-main");
+  const preloader = document.getElementById("preloader");
 
-    // Back to top button
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 100) {
-            $('.back-to-top').fadeIn('slow');
-        } else {
-            $('.back-to-top').fadeOut('slow');
-        }
-    });
-    $('.back-to-top').click(function () {
-        $('html, body').animate({ scrollTop: 0 }, 1500, 'easeInOutExpo');
-        return false;
-    });
+  const setHeaderState = () => {
+    if (header) {
+      header.classList.toggle("header-scrolled", window.scrollY > 40);
+    }
+  };
 
-    // Initiate superfish on nav menu
-    $('.nav-menu').superfish({
-        animation: {
-            opacity: 'show'
-        },
-        speed: 400
-    });
+  const setBackToTopState = () => {
+    if (backToTop) {
+      backToTop.classList.toggle("show", window.scrollY > 300);
+    }
+  };
 
-    // Mobile Navigation
-    if ($('#nav-menu-container').length) {
-        var $mobile_nav = $('#nav-menu-container').clone().prop({
-            id: 'mobile-nav'
-        });
-        $mobile_nav.find('> ul').attr({
-            'class': '',
-            'id': ''
-        });
-        $('body').append($mobile_nav);
-        $('body').prepend('<button type="button" id="mobile-nav-toggle"><i class="fa fa-bars"></i></button>');
-        $('body').append('<div id="mobile-body-overly"></div>');
-        $('#mobile-nav').find('.menu-has-children').prepend('<i class="fa fa-chevron-down"></i>');
+  const smoothScrollTo = (target) => {
+    const offset = header ? header.offsetHeight + 12 : 0;
+    const targetTop = Math.max(target.getBoundingClientRect().top + window.scrollY - offset, 0);
+    window.scrollTo({ top: targetTop, behavior: "smooth" });
+  };
 
-        $(document).on('click', '.menu-has-children i', function (e) {
-            $(this).next().toggleClass('menu-item-active');
-            $(this).nextAll('ul').eq(0).slideToggle();
-            $(this).toggleClass("fa-chevron-up fa-chevron-down");
-        });
+  const closeMobileNav = () => {
+    document.body.classList.remove("mobile-nav-active");
+    navToggle?.classList.remove("active");
+    navToggle?.setAttribute("aria-expanded", "false");
+    document.getElementById("mobile-nav")?.classList.remove("show");
+  };
 
-        $(document).on('click', '#mobile-nav-toggle', function (e) {
-            $('body').toggleClass('mobile-nav-active');
-            $('#mobile-nav-toggle i').toggleClass('fa-times fa-bars');
-            $('#mobile-body-overly').toggle();
-        });
+  const openMobileNav = () => {
+    document.body.classList.add("mobile-nav-active");
+    navToggle?.classList.add("active");
+    navToggle?.setAttribute("aria-expanded", "true");
+    document.getElementById("mobile-nav")?.classList.add("show");
+  };
 
-        $(document).click(function (e) {
-            var container = $("#mobile-nav, #mobile-nav-toggle");
-            if (!container.is(e.target) && container.has(e.target).length === 0) {
-                if ($('body').hasClass('mobile-nav-active')) {
-                    $('body').removeClass('mobile-nav-active');
-                    $('#mobile-nav-toggle i').toggleClass('fa-times fa-bars');
-                    $('#mobile-body-overly').fadeOut();
-                }
-            }
-        });
-    } else if ($("#mobile-nav, #mobile-nav-toggle").length) {
-        $("#mobile-nav, #mobile-nav-toggle").hide();
+  const toggleMobileNav = () => {
+    if (document.body.classList.contains("mobile-nav-active")) {
+      closeMobileNav();
+      return;
+    }
+    openMobileNav();
+  };
+
+  const ensureMobileNav = () => {
+    if (!navContainer || document.getElementById("mobile-nav")) {
+      return;
     }
 
-    // Header scroll class
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 100) {
-            $('#header').addClass('header-scrolled');
-        } else {
-            $('#header').removeClass('header-scrolled');
-        }
-    });
+    const clonedNav = navContainer.cloneNode(true);
+    clonedNav.id = "mobile-nav";
+    clonedNav.querySelectorAll(".nav-menu").forEach((menu) => menu.classList.remove("nav-menu"));
+    document.body.appendChild(clonedNav);
 
-    if ($(window).scrollTop() > 100) {
-        $('#header').addClass('header-scrolled');
+    if (!navToggle && header) {
+      const toggle = document.createElement("button");
+      toggle.type = "button";
+      toggle.id = "nav-toggle";
+      toggle.setAttribute("aria-label", "Toggle navigation menu");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.innerHTML = "<span></span><span></span><span></span>";
+      header.querySelector(".container-fluid")?.appendChild(toggle);
+      navToggle = toggle;
+    }
+  };
+
+  const initLegacyCarouselSupport = () => {
+    const introCarousel = document.querySelector(".carousel");
+    const indicators = document.querySelector(".carousel-indicators");
+    if (!introCarousel || !indicators) {
+      return;
     }
 
-    // Auto-hide navbar on scroll
-    var lastScrollTop = 0;
-    var navbarHeight = $('#header').outerHeight();
-    var scrollTimeout;
-    var isMouseNearTop = false;
+    indicators.innerHTML = "";
+    const items = introCarousel.querySelectorAll(".carousel-inner > .carousel-item");
+    items.forEach((item, index) => {
+      const indicator = document.createElement("li");
+      indicator.setAttribute("data-target", "#introCarousel");
+      indicator.setAttribute("data-slide-to", String(index));
+      if (index === 0) {
+        indicator.classList.add("active");
+      }
+      indicators.appendChild(indicator);
 
-    $(window).on('scroll', function () {
-        clearTimeout(scrollTimeout);
-        var currentScroll = $(this).scrollTop();
-        var header = $('#header');
+      const image = item.querySelector(".carousel-background img");
+      if (image) {
+        item.style.backgroundImage = `url('${image.getAttribute("src")}')`;
+        item.querySelector(".carousel-background")?.remove();
+      }
+    });
+  };
 
-        // Hide navbar when scrolling down
-        if (currentScroll > lastScrollTop && currentScroll > navbarHeight) {
-            header.addClass('navbar-hidden');
-        } else {
-            // Show navbar when scrolling up or near top
-            header.removeClass('navbar-hidden');
+  const initLegacyQuantityControls = () => {
+    document.querySelectorAll(".quantity").forEach((quantity) => {
+      if (!quantity.querySelector(".dec.q-btn")) {
+        const dec = document.createElement("span");
+        dec.className = "dec q-btn";
+        dec.textContent = "-";
+        quantity.prepend(dec);
+      }
+      if (!quantity.querySelector(".inc.q-btn")) {
+        const inc = document.createElement("span");
+        inc.className = "inc q-btn";
+        inc.textContent = "+";
+        quantity.appendChild(inc);
+      }
+    });
+
+    document.addEventListener("click", (event) => {
+      const target = event.target;
+      if (!(target instanceof Element) || !target.classList.contains("q-btn")) {
+        return;
+      }
+      const quantity = target.parentElement;
+      const input = quantity?.querySelector("input");
+      if (!input) {
+        return;
+      }
+      const currentValue = Number.parseFloat(input.value || "0");
+      const nextValue = target.classList.contains("inc") ? currentValue + 1 : Math.max(currentValue - 1, 0);
+      input.value = String(nextValue);
+    });
+  };
+
+  const initCaptureShield = () => {
+    document.addEventListener("click", (event) => {
+      const target = event.target;
+      if (!(target instanceof Element)) {
+        return;
+      }
+
+      const toggle = target.closest("#nav-toggle");
+      if (toggle) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        toggleMobileNav();
+        return;
+      }
+
+      const navLink = target.closest("#nav-menu-container a, #mobile-nav a");
+      if (navLink) {
+        const submenu = navLink.parentElement?.querySelector(".nav-dropdown");
+        const mobile = window.matchMedia("(max-width: 768px)").matches;
+
+        if (submenu && mobile) {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          submenu.classList.toggle("show");
+          return;
         }
 
-        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-    });
+        closeMobileNav();
+      }
 
-    // Show navbar when mouse moves to top of screen
-    $(document).on('mousemove', function (e) {
-        if (e.pageY < 50) {
-            $('#header').removeClass('navbar-hidden');
-            isMouseNearTop = true;
-        } else {
-            isMouseNearTop = false;
+      const hashLink = target.closest('a[href^="#"]');
+      if (hashLink) {
+        const hash = hashLink.getAttribute("href");
+        if (hash && hash !== "#") {
+          const destination = document.querySelector(hash);
+          if (destination) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            smoothScrollTo(destination);
+            closeMobileNav();
+          }
         }
+      }
+
+      if (backToTop && backToTop.contains(target)) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    }, true);
+  };
+
+  window.addEventListener("load", () => {
+    if (preloader) {
+      preloader.remove();
+    }
+    ensureMobileNav();
+    initLegacyCarouselSupport();
+    initLegacyQuantityControls();
+    initCaptureShield();
+    setHeaderState();
+    setBackToTopState();
+  });
+
+  window.addEventListener("scroll", () => {
+    setHeaderState();
+    setBackToTopState();
+  }, { passive: true });
+
+  navToggle?.addEventListener("click", toggleMobileNav);
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeMobileNav();
+    }
+  });
+
+  if (skipLink) {
+    skipLink.addEventListener("click", (event) => {
+      const main = document.querySelector("main");
+      if (!main) {
+        return;
+      }
+      event.preventDefault();
+      main.setAttribute("tabindex", "-1");
+      main.focus({ preventScroll: true });
+      smoothScrollTo(main);
     });
-
-    // Hide navbar if user scrolls down after mouse leaves top area
-    $(window).on('scroll', function () {
-        if (!isMouseNearTop && $(this).scrollTop() > navbarHeight) {
-            var currentScroll = $(this).scrollTop();
-            if (currentScroll > lastScrollTop) {
-                $('#header').addClass('navbar-hidden');
-            }
-        }
-    });
-
-    // Intro carousel
-    var introCarousel = $(".carousel");
-    var introCarouselIndicators = $(".carousel-indicators");
-    introCarousel.find(".carousel-inner").children(".carousel-item").each(function (index) {
-        (index === 0) ?
-            introCarouselIndicators.append("<li data-target='#introCarousel' data-slide-to='" + index + "' class='active'></li>") :
-            introCarouselIndicators.append("<li data-target='#introCarousel' data-slide-to='" + index + "'></li>");
-
-        $(this).css("background-image", "url('" + $(this).children('.carousel-background').children('img').attr('src') + "')");
-        $(this).children('.carousel-background').remove();
-    });
-
-    $(".carousel").swipe({
-        swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
-            if (direction == 'left')
-                $(this).carousel('next');
-            if (direction == 'right')
-                $(this).carousel('prev');
-        },
-        allowPageScroll: "vertical"
-    });
-
-    // Cart Quantity
-    $('.quantity').prepend('<span class="dec q-btn">-</span>');
-    $('.quantity').append('<span class="inc q-btn">+</span>');
-    $('.q-btn').on('click', function () {
-        var $button = $(this);
-        var oldValue = $button.parent().find('input').val();
-        if ($button.hasClass('inc')) {
-            var newVal = parseFloat(oldValue) + 1;
-        } else {
-            if (oldValue > 0) {
-                var newVal = parseFloat(oldValue) - 1;
-            } else {
-                newVal = 0;
-            }
-        }
-        $button.parent().find('input').val(newVal);
-    });
-
-})(jQuery);
-
+  }
+})();

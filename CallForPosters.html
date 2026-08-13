@@ -1,353 +1,197 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8" />
   <title>CALL FOR POSTERS | ICDDS</title>
-  <meta name="keywords"
-    content="International Conference on Data Decision and Systems, ICDDS 2024, ieeecsbc, IEEE COMPUTER SOCIETY BANGALORE CHAPTER, " />
-  <meta
-    content="Rapid advances and growth in connected world across different application domains are fast pacing the data volumes generated from range of devices. Such high growth is further endorsed by digital transformation, adoption of advanced Internet of Things (IoT) solutions, cyber physical systems, and Smart Things. Data being the centre of innovative systems, its overall realization in solution building depends on several aspects such as the quality of data; data management; computation; knowledge discovery; decision support, etc.
-    ICDDS 23 aims to look broadly at data based innovation and technologies in interdisciplinary areas. The conference considers all aspects of data and decision science, applications, solution design and system challenges in all such new paradigms ranging from theory to applied research."
-    name="description" />
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
-
-  <!-- Favicons -->
+  <meta name="keywords" content="International Conference on Data Decision and Systems, ICDDS 2026, IEEE Computer Society Bangalore Chapter" />
+  <meta name="description" content="Call for Posters for ICDDS 2026. Submit posters presenting early work, systems, and data-driven research." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="img/favicon.ico" rel="icon" />
   <link href="img/apple-touch-icon.png" rel="apple-touch-icon" />
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:300,400,500,700,900"
-    rel="stylesheet" />
-
-  <!-- Bootstrap CSS File -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-
-  <!-- Libraries CSS Files -->
   <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
   <link href="vendor/animate/animate.min.css" rel="stylesheet" />
   <link href="vendor/ionicons/css/ionicons.min.css" rel="stylesheet" />
   <link href="vendor/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
-
-  <!-- Main Stylesheet File -->
   <link href="css/style.css" rel="stylesheet" />
   <style>
-    .para {
-      margin-top: 2%;
-      margin-left: 10%;
-      margin-right: 10%;
+    .content-shell {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .content-hero {
+      margin-bottom: 32px;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1.7fr 0.9fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .content-card,
+    .sidebar-card {
+      border: 1px solid #e3e3e3;
+      border-radius: 10px;
+      padding: 24px;
+      background: #fff;
+      box-shadow: 0 12px 32px rgba(16, 24, 40, 0.06);
+    }
+
+    .topic-cloud {
+      list-style: none;
+      padding: 0;
+      columns: 2;
+      gap: 16px;
+    }
+
+    .topic-cloud li {
+      margin-bottom: 10px;
+    }
+
+    .bullet-list {
+      list-style: disc;
+      margin-left: 1rem;
+    }
+
+    .cta-stack a {
+      margin-right: 12px;
+      margin-bottom: 8px;
+    }
+
+    .timeline-list li {
+      margin-bottom: 12px;
+      list-style: none;
+    }
+
+    .timeline-list strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .detail-item {
+      margin-bottom: 10px;
+    }
+
+    footer .copyright {
+      text-align: center;
+      padding: 16px 0;
     }
   </style>
 </head>
 
-<body>
-  <!-- Header Start -->
-  <link href="css/style.css" rel="stylesheet" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-  <script type="text/javascript">
-    (function ($) {
-      // Begin jQuery
-      $(function () {
-        // DOM ready
-        // If a link has a dropdown, add sub menu toggle.
-        $("nav ul li a:not(:only-child)").click(function (e) {
-          $(this).siblings(".nav-dropdown").toggle();
-          // Close one dropdown when selecting another
-          $(".nav-dropdown").not($(this).siblings()).hide();
-          e.stopPropagation();
-        });
-        // Clicking away from dropdown will remove the dropdown class
-        $("html").click(function () {
-          $(".nav-dropdown").hide();
-        });
-        // Toggle open and close nav styles on click
-        $("#nav-toggle").click(function () {
-          $("nav ul").slideToggle();
-        });
-        // Hamburger to X toggle
-        $("#nav-toggle").on("click", function () {
-          this.classList.toggle("active");
-        });
-      }); // end DOM ready
-    })(jQuery); // end jQuery
-  </script>
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-
-  <!-- Header Start -->
+<body class="content-page">
   <header id="header">
     <div class="container-fluid">
       <div id="logo" class="pull-left">
-        <!-- Uncomment below if you prefer to use text logo -->
-        <h2><a href="index.html" class="scrollto">ICDDS</a></h2>
-        <!-- <a href="/">ICDDS <img src="img/logo.png" alt="Logo" /></a> -->
+        <h2><a href="index.html">ICDDS</a></h2>
       </div>
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li><a href="index.html">Home</a></li>
-          <!-- <li><a href="about.html">About</a></li> -->
-          <li>
-            <a href="#">Committee</a>
-
-            <ul class="nav-dropdown">
-              <li>
-                <a href="Organizing-Committee.html">Organizing Committee</a>
-              </li>
-            </ul>
-          </li>
+          <li><a href="Organizing-Committee.html">Committee</a></li>
           <li><a href="CallForPapers.html">Call for Papers</a></li>
-          <li class="menu-active"><a href="CallForPosters.html">Call for Posters</a>
-                        <!-- <ul class="nav-dropdown">
-                            <li><a href="Foundational-Research.html">Topics of Interest</a></li>
-                            <li><a href="Systems-Research.html">Systems Research</a>
-                            </li>
-                            <li><a href="Applications.html">Applications</a></li>
-                            <li><a href="AuthorGuide.html">Author's Guidelines</a></li>
-                        </ul> -->
-                    </li>
-          <!-- <li><a href="Sponsorship.html">Sponsorship</a></li> -->
-          <!-- <li><a href="Program-Schedule.html">Program Schedule</a></li> -->
-
-          <!-- <li>
-              <a href="#">Workshops</a>
-              <ul class="nav-dropdown">
-                <li><a href="smartcity.html">Smart City Stack workshop</a></li>
-                <li>
-                  <a href="girlgeekhack.html"
-                    >GirlGeekHack'23 (Mangalore Subsection Edition)</a
-                  >
-                </li>
-                <li><a href="studentcongress.html">CS Student Congress</a></li>
-              </ul>
-            </li>-->
-
-            <li><a href="speakers.html">Speakers</a></li>
+          <li class="active"><a href="CallForPosters.html">Call for Posters</a></li>
+          <li><a href="speakers.html">Speakers</a></li>
           <li><a href="venue.html">Venue</a></li>
-          <!-- <li><a href="ticket.html">Tickets</a></li> -->
           <li><a href="contact.html">Contact</a></li>
-
-          <!-- <li>
-              <a href="#">Archives</a>
-
-              <ul class="nav-dropdown">
-                <li><a href="2022.html">2022</a></li>
-              </ul>
-            </li> -->
-          <!-- <li><a href="registration.html">Registration</a></li> -->
         </ul>
       </nav>
-      <!-- #nav-menu-container -->
     </div>
   </header>
-  <!-- #header end -->
-  <!-- Header end -->
 
-  <!-- Banner Section Start-->
-  <section class="banner">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="row">
-            <div class="col-md-6">
-              <h1 class="banner-header">Call For Posters</h1>
-            </div>
-            <div class="col-md-6">
-              <p class="banner-nav">
-                <!-- <img src="img/logo.png" class="logo" width="150px"> -->
-                <img src="img/IEEE-CS-BangaloreChapterOrange.png" width="190px" /><br />
-                <span class="banner-box">
-                  <a href="index.html">Home</a>
-                  <a href="CallForPosters.html">Call For Posters</a>
-                </span>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Banner Section end -->
-  <!-- Poster Session Section -->
-  <section class="cfp-section" style="padding: 60px 0; background: #fff;">
-    <div class="container">
-      <h2 style="text-align: center; font-size: 32px; color: #333; margin-bottom: 30px; font-weight: 600;">Poster Session</h2>
-      <div style="max-width: 900px; margin: 0 auto; text-align: justify; line-height: 1.8; color: #666; font-size: 16px;">
-        <p>The Poster Session offers a vibrant forum for researchers to showcase preliminary or ongoing work in the broad areas of Data and Decision Systems. Presenters will benefit from engaging conversations and constructive feedback from the reviewing committee and conference attendees. <strong>Accepted and presented posters will be submitted in IEEE Explore conference proceedings.</strong></p>
-        <p>Based on the theme of ICDDS, the topics of interest for the poster submissions include (but are not limited to) the following:</p>
-      </div>
-    </div>
-  </section>
+  <main class="content-shell">
+    <section class="content-hero" aria-label="Call for Posters overview">
+      <span class="eyebrow">Call for Posters</span>
+      <h1>Posters at ICDDS 2026 welcome early results, demos, and emerging ideas.</h1>
+      <p>The poster track is ideal for work that benefits from discussion, feedback, and exposure in a live conference setting.</p>
+    </section>
 
-  <!-- Topics of Interest Section -->
-  <section class="topics-section" style="padding: 40px 0; background: #fff;">
-    <div class="container">
-      <h2 style="text-align: center; font-size: 32px; color: #333; margin-bottom: 40px; font-weight: 600;">Topics of Interest</h2>
-      <div style="max-width: 1000px; margin: 0 auto;">
-        <div class="row">
-          <div class="col-md-6">
-            <ul style="list-style: none; padding: 0; color: #666; font-size: 14px; line-height: 2;">
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>Probabilistic Inference (Bayesian methods, graphical models, Monte Carlo methods, etc.)</li>
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>Generative models</li>
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>Data privacy</li>
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>New Data Standards</li>
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>Learning Theory (Bandits, Game Theory, Statistical Learning Theory, etc.)</li>
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>ML and Deep learning</li>
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>VLSI and architecture design for data science applications</li>
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>Systems for resource-constrained computing</li>
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>Energy-efficient computing and inference architectures</li>
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>Data Centric AI</li>
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>Federated Learning and Its Applications</li>
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>Optimization</li>
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>Ethics in artificial intelligence</li>
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>ML for embedded platforms</li>
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>Analytics method and systems</li>
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>Time-series analysis</li>
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>Machine Reasoning and Hybrid AI</li>
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>CPU/GPU architectures for AI/ML applications</li>
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>Resource-constrained computing architectures</li>
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>Software techniques and architecture in Cloud/Grid/Stream Computing</li>
-            </ul>
-          </div>
-          <div class="col-md-6">
-            <ul style="list-style: none; padding: 0; color: #666; font-size: 14px; line-height: 2;">
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>Online learning</li>
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>Large Language Models</li>
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>New Computational Models for Big Data</li>
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>Semantic-based Data Mining</li>
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>Multi-agent systems</li>
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>Web analytics</li>
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>Compiler optimization using AI/ML</li>
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>Systems for Big Data</li>
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>Data Science Use Cases</li>
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>Responsible AI and Interpretability</li>
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>Data mining</li>
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>Social computing and analytics</li>
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>Algorithms and systems for database</li>
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>Recommender systems</li>
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>Multimedia processing</li>
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>Text analytics and NLP</li>
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>Information retrieval</li>
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>Urban Computing and Analytics</li>
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>Challenges in Data Science and Applications</li>
-              <li><i class="fa fa-circle" style="color: #002855; margin-right: 10px;"></i>Foundation Models Beyond LLMs</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    <section class="content-grid">
+      <div class="content-column">
+        <article class="content-card">
+          <span class="eyebrow">Poster Session</span>
+          <h2>Why submit a poster</h2>
+          <p class="lead">The poster track provides a platform for authors to present preliminary work, practical demonstrations, and research-in-progress in data and decision systems.</p>
+        </article>
 
-  <!-- Important Dates Orange Section -->
-  <section class="important-dates-cfp" style="background: #002855; color: white; padding: 40px 0; text-align: center;">
-    <div class="container">
-      <h2 style="font-size: 36px; font-weight: 600; margin-bottom: 30px; color: white;">Important Dates</h2>
-      <div class="row" style="max-width: 800px; margin: 0 auto;">
-        <div class="col-md-6">
-          <p style="font-size: 16px; margin: 15px 0;">
-            <i class="fa fa-calendar" style="margin-right: 10px;"></i><strong>Poster Submission Starts:</strong><br>August 15, 2026
-          </p>
-          <p style="font-size: 16px; margin: 15px 0;">
-            <i class="fa fa-calendar" style="margin-right: 10px;"></i><strong>Notification of Acceptance:</strong><br>November 7, 2026
-          </p>
-        </div>
-        <div class="col-md-6">
-          <p style="font-size: 16px; margin: 15px 0;">
-            <i class="fa fa-calendar" style="margin-right: 10px;"></i><strong>Poster Submission Deadline:</strong><br>October 7, 2026
-          </p>
-          <p style="font-size: 16px; margin: 15px 0;">
-            <i class="fa fa-calendar" style="margin-right: 10px;"></i><strong>Camera-ready Submission:</strong><br>November 15, 2026
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Submission Guidelines Section -->
-  <section class="submission-guidelines" style="padding: 60px 0; background: #fff;">
-    <div class="container">
-      <h2 style="text-align: center; font-size: 32px; color: #333; margin-bottom: 30px; font-weight: 600;">Submission Guidelines</h2>
-      <div style="max-width: 900px; margin: 0 auto;">
-        <div style="background: #f5f5f5; padding: 30px; border-left: 5px solid #002855;">
-          <h4 style="color: #002855; font-size: 16px; font-weight: 600; margin-bottom: 15px;">Manuscript Submission</h4>
-          <p style="color: #666; line-height: 1.8; margin-bottom: 10px;">Authors are encouraged to highlight the <strong>novelty</strong> and <strong>potential impact</strong> of their work. All poster submissions will undergo a <strong>double-blind peer review</strong>, so please ensure that <strong>no author names, affiliations, or identifying information</strong> are included in the manuscript.</p>
-          <h4 style="color: #002855; font-size: 16px; font-weight: 600; margin: 20px 0 15px 0;">Submission Requirements:</h4>
-          <ul style="color: #666; line-height: 1.8; margin-left: 20px;">
-            <li><strong>Length:</strong> 3-4 pages including all technical content, figures, tables, and references</li>
-            <li><strong>Format:</strong> IEEE double-column format with 10-point font</li>
-            <li><strong>File Format:</strong> PDF only</li>
-            <li><strong>Style:</strong> Follow conference formatting guidelines</li>
-            <li><strong>Review:</strong> Double-blind peer review process</li>
+        <article class="content-card">
+          <span class="eyebrow">Topics welcome</span>
+          <h2>Poster themes</h2>
+          <ul class="topic-cloud">
+            <li>Probabilistic inference</li>
+            <li>Large language models</li>
+            <li>Data privacy</li>
+            <li>Federated learning</li>
+            <li>Optimization</li>
+            <li>Ethics in AI</li>
+            <li>Recommender systems</li>
+            <li>Urban computing</li>
+            <li>Foundational models</li>
+            <li>Responsible AI</li>
+            <li>Web analytics</li>
+            <li>System design</li>
+            <li>ML for embedded platforms</li>
+            <li>Cloud and stream computing</li>
           </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+        </article>
 
-  <!-- Poster Format Section -->
-  <section class="poster-format" style="padding: 60px 0; background: #f9f9f9;">
-    <div class="container">
-      <h2 style="text-align: center; font-size: 32px; color: #333; margin-bottom: 30px; font-weight: 600;">Poster Format for Printing</h2>
-      <div style="max-width: 900px; margin: 0 auto;">
-        <div style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
-          <p style="color: #666; line-height: 1.8; margin-bottom: 20px;">You will need to bring a printed copy of your accepted poster to the poster session. Please prepare your posters in dimensions:</p>
-          
-          <div style="background: #fff3e0; padding: 20px; border-radius: 6px; text-align: center; margin: 20px 0;">
-            <h4 style="color: #002855; font-size: 18px; font-weight: 600; margin: 0 0 5px 0;">A0 Format</h4>
-            <p style="color: #666; margin: 0;">841 x 1189 mm (33.11 x 46.81 inches)</p>
-            <p style="color: #666; margin: 5px 0 0 0; font-size: 14px;">Portrait Orientation</p>
-          </div>
-
-          <h4 style="color: #002855; font-size: 16px; font-weight: 600; margin: 20px 0 15px 0;">Design Tips:</h4>
-          <ul style="color: #666; line-height: 1.8; margin-left: 20px;">
-            <li>We will arrange for the necessary support system, including poster stands, clips, etc.</li>
-            <li>Posters should be visually engaging, focusing on figures, diagrams, key results, and high-level takeaways</li>
-            <li>Avoid large blocks of text</li>
-            <li>Think of your poster as a conversation starter that sparks interest and encourages feedback</li>
+        <article class="content-card">
+          <span class="eyebrow">Submission guidelines</span>
+          <h2>What to include</h2>
+          <ul class="bullet-list">
+            <li>Poster submissions must be anonymized and follow double-blind review.</li>
+            <li>Maximum length is 3-4 pages in IEEE double-column format.</li>
+            <li>Submit as a PDF through Microsoft CMT.</li>
+            <li>Focus on clear visuals, key results, and concise explanations.</li>
           </ul>
-        </div>
+        </article>
+
+        <article class="content-card">
+          <span class="eyebrow">Poster format</span>
+          <h2>Preparation tips</h2>
+          <p class="lead">Prepare a printed poster in A0 portrait orientation. Highlight diagrams, figures, data flow, and results so the poster works as a conversation starter.</p>
+        </article>
       </div>
-    </div>
-  </section>
-  <!-- Footer Start -->
-  <!-- Footer Start -->
+
+      <aside class="sidebar-column">
+        <div class="sidebar-card">
+          <span class="eyebrow">Quick action</span>
+          <h3>Submit your poster</h3>
+          <div class="callout">Upload your poster PDF through the ICDDS CMT portal.</div>
+          <div class="cta-stack" style="margin-top: 20px;">
+            <a href="https://cmt3.research.microsoft.com/ICDDS2026" target="_blank" class="btn btn-primary">Submit to CMT</a>
+            <a href="CallForPapers.html" class="btn btn-secondary">View Call for Papers</a>
+          </div>
+          <p class="compact-note">Please ensure all author details are entered in CMT and the manuscript is anonymized for review.</p>
+        </div>
+
+        <div class="sidebar-card">
+          <span class="eyebrow">Important dates</span>
+          <h3>Poster timeline</h3>
+          <div class="timeline-list">
+            <li><strong>Submission starts</strong><span>August 15, 2026</span></li>
+            <li><strong>Deadline</strong><span>October 7, 2026</span></li>
+            <li><strong>Acceptance</strong><span>November 7, 2026</span></li>
+            <li><strong>Camera ready</strong><span>November 15, 2026</span></li>
+          </div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
   <footer id="footer">
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="social-links">
-              <a href="https://twitter.com/ieeecsbs" class="twitter" target="_blank"><i class="fa fa-twitter"></i></a>
-              <a href="https://facebook.com/ieeecsbsc" class="facebook" target="_blank"><i
-                  class="fa fa-facebook"></i></a>
-              <a href="https://instagram.com/ieeecsbc" class="instagram" target="_blank"><i
-                  class="fa fa-instagram"></i></a>
-              <!-- <a href="#" class="google-plus"><i class="fa fa-youtube"></i></a> -->
-              <a href="https://www.linkedin.com/in/ieeecsbs/" class="linkedin" target="_blank"><i
-                  class="fa fa-linkedin"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="container">
       <div class="copyright">
-        &copy; 2026 <a href="https://www.icdds.org">ICDDS</a>. All Rights
-        Reserved.<br />
-        Organized By
-        <a href="https://ieeecsbangalore.org/">IEEE Computer Society Banglore Chapter</a>
+        &copy; 2026 <a href="https://www.icdds.org">ICDDS</a>. All Rights Reserved. Organized by <a href="https://ieeecsbangalore.org/">IEEE Computer Society Bangalore Chapter</a>.
       </div>
     </div>
   </footer>
-  <!-- #footer end -->
-  <!-- #footer end -->
 
-  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-  <!-- Uncomment below i you want to use a preloader -->
-  <!-- <div id="preloader"></div> -->
-
-  <!-- JavaScript Libraries -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/jquery/jquery-migrate.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -357,8 +201,6 @@
   <script src="vendor/waypoints/waypoints.min.js"></script>
   <script src="vendor/owlcarousel/owl.carousel.min.js"></script>
   <script src="vendor/touchSwipe/jquery.touchSwipe.min.js"></script>
-
-  <!-- Main Javascript File -->
   <script src="js/main.js"></script>
 </body>
 
